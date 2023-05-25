@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #025464;">
+  <a class="navbar-brand" href="#">Dom opieki "Ostatnia prosta"</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      {% if not request.user.is_staff %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'glowna' %}">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'kontakt' %}">Kontakt</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'onas' %}">O nas</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'admin_login' %}">Login</a>
+      </li>
+      {% endif %}
+      {% if request.user.is_staff %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'dashboard' %}">Panel administratora<span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pracownik
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" href="{% url 'podglad_pracownika' %}">Wszyscy pracownicy</a>
+          <a class="dropdown-item" href="{% url 'dodaj_pracownika' %}">Dodaj pracownika</a>
+        </div>
+      </li>
+            <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pensjonariusz
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" href="{% url 'podglad_pensjonariusza' %}">Wszyscy pensjonariusze</a>
+          <a class="dropdown-item" href="{% url 'dodaj_pensjonariusza' %}">Dodaj pensjonariusza</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recepty
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+          <a class="dropdown-item" href="{% url 'widok_recept' %}">Wszystkie recepty</a>
+          <a class="dropdown-item" href="{% url 'dodanie_recepty' %}">Dodanie recepty</a>
+        </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'logout_admin' %}">logout</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>

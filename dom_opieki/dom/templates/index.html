@@ -1,0 +1,44 @@
+{% include 'bazowa.html' %}
+{% load static %}
+{% include 'nawigacja.html' %}
+
+
+{% block content %}
+<h1 class="text-center">Panel administratora</h1>
+<br><br><br><br>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 mydivstyle">
+            <h2 style = "color: #025464;">{{d}}</h2>
+            <a href="{% url 'podglad_pracownika' %}">
+                <h4 style="color: #E57C23">Lekarze</h4>
+                <hr class="rounded">
+            </a>
+        </div>
+
+        <div class="col-sm-4 mydivstyle">
+            <h2 style = "color: #025464;">{{p}}</h2>
+            <a href="{% url 'podglad_pensjonariusza' %}">
+                <h4 style="color: #E57C23">Pensjonariusze</h4>
+                <hr class="rounded">
+            </a>
+        </div>
+
+        <div class="col-sm-4 mydivstyle">
+            <h2 style = "color: #025464;">{{a}}</h2>
+            <a href="{% url 'widok_recept' %}">
+                <h4 style="color: #E57C23">Recepty</h4>
+                <hr class="rounded">
+            </a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% include 'stopka.html' %}
+
+

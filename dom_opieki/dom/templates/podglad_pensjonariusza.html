@@ -1,0 +1,43 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+
+{% block content %}
+
+<div>
+  <h2>Podgląd pensjonariusza</h2>
+  <table id="example" class="table table-hover">
+    <thead>
+    <tr>
+      <th>Id pensjonariusza</th>
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th>Data urodzenia</th>
+      <th>Płeć</th>
+      <th>Dane kontaktowe</th>
+      <th>Informacje medyczne</th>
+      <!-- <th>Historia leczenia</th> -->
+      <th>Usuń</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for i in doc %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.imie}}</td>
+        <td>{{i.nazwisko}}</td>
+        <td>{{i.data_urodzenia}}</td>
+        <td>{{i.plec}}</td>
+        <td>{{i.dane_kontaktowe}}</td>
+        <td>{{i.informacje_medyczne}}</td>
+        <!-- <td>Historia leczenia</td> -->
+        <td><a href="{% url 'usun_pensjonariusza' i.id %}" onclick="return confirm('Jesteś pewien?')" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
+
+<br><br><br>
+{% include 'stopka.html' %}

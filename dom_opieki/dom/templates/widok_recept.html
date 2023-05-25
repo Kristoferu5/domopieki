@@ -1,0 +1,35 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+
+{% block content %}
+
+<div>
+  <h2>Wszystkie recepty</h2>
+  <table id="example" class="table table-hover">
+    <thead>
+    <tr>
+      <th>Data wystawienia</th>
+      <th>Zalecone leki</th>
+      <th>Lekarz</th>
+      <th>Pensjonariusz</th>
+      <th>Usuń</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for i in doc %}
+      <tr>
+        <td>{{ i.data_wystawienia }}</td>
+        <td>{{ i.zalecone_leki }}</td>
+        <td>{{ i.lekarz }}</td>
+        <td>{{ i.pensjonariusz }}</td>
+        <td><a href="{% url 'usun_recepte' i.id %}" onclick="return confirm('Jesteś pewien?')" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
+
+<br><br><br>
+{% include 'stopka.html' %}

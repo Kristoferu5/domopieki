@@ -1,0 +1,40 @@
+#h1 {
+    color: aqua;
+}
+
+hr.rounded{
+    border-top: 5px solid #E8AA42;
+    border-radius 3px;
+}
+
+.mydivstyle:hover {
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+    transform: translateY(-20px);
+}
+
+
+
+#services .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+#services .card-img img {
+  width: 100%;
+  height: auto;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+body {
+  background-color: #F8F1F1;
+}
+
+
+
+

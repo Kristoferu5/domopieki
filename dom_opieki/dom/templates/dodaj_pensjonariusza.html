@@ -1,0 +1,49 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+
+{% block content %}
+
+{% if error == "no" %}
+<script>
+  alert('Zapisano pomyślnie!');
+  window.location = "{% url 'podglad_pensjonariusza' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Coś poszło nie tak. Spróbuj ponownie.');
+</script>
+{% endif %}
+
+<div class="container">
+  <h2 class="text-center">Dodawanie pensjonariusza</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label>Imię</label>
+    <input type="text" class="form-control" name="imie">
+    <label>Nazwisko</label>
+    <input type="text" class="form-control" name="nazwisko">
+      <label>Data urodzenia</label>
+    <input type="date" class="form-control" name="data_urodzenia">
+      <label>Płeć</label>
+    <input type="text" class="form-control" name="plec">
+    <label>Dane kontaktowe</label>
+    <input type="text" class="form-control" name="dane_kontaktowe">
+    <label>Informacje medyczne</label>
+    <input type="text" class="form-control" name="informacje_medyczne">
+   <!--
+    <label>Historia leczenia</label>
+    <input type="text" class="form-control" name="historia_leczenia">
+-->
+<br>
+
+    <input type="submit" value="submit" class="form-control btn btn-primary">
+  </form>
+</div>
+
+{% endblock content %}
+
+<br><br><br><br>
+
+{% include 'stopka.html' %}

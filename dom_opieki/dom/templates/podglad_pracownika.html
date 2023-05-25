@@ -1,0 +1,37 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+
+{% block content %}
+
+<div>
+  <h2>Podgląd pracownika</h2>
+  <table id="example" class="table table-hover">
+    <thead>
+    <tr>
+      <th>Id pracownika</th>
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th>Dane kontaktowe</th>
+      <th>Specjalizacja</th>
+      <th>Usuń</th>
+    </tr>
+    </thead>
+    <tbody>
+      {% for i in doc %}
+      <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.imie}}</td>
+        <td>{{i.nazwisko}}</td>
+        <td>{{i.dane_kontaktowe}}</td>
+        <td>{{i.specjalizacja}}</td>
+        <td><a href="{% url 'usun_pracownika' i.id %}" onclick="return confirm('Jesteś pewien?')" class="btn btn-danger">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}
+
+<br><br><br>
+{% include 'stopka.html' %}

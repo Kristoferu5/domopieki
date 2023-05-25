@@ -1,0 +1,51 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+
+{% block content %}
+
+{% if error == "no" %}
+<script>
+  alert('Zapisano pomyślnie!');
+  window.location = "{% url 'widok_recept' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Coś poszło nie tak. Spróbuj ponownie.');
+</script>
+{% endif %}
+
+<div class="container">
+  <h2 class="text-center">Dodawanie recepty</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label>Lekarz</label>
+<select name="lekarz" class="form-control">
+  {% for lekarz in lekarze %}
+  <option value="{{ lekarz.id }}">{{ lekarz.imie }} {{ lekarz.nazwisko }}</option>
+  {% endfor %}
+</select>
+
+    <label>Pensjonariusz</label>
+    <select name="pensjonariusz" class="form-control">
+      {% for pensjonariusz in pensjonariusze %}
+      <option value="{{ pensjonariusz.id }}">{{ pensjonariusz.imie }} {{ pensjonariusz.nazwisko }}</option>
+      {% endfor %}
+    </select>
+
+    <label>Data</label>
+    <input type="date" class="form-control" name="datawys">
+    <label>Leki</label>
+    <input type="text" class="form-control" name="leki">
+    <br>
+
+    <input type="submit" value="submit" class="form-control btn btn-primary">
+  </form>
+</div>
+
+{% endblock content %}
+
+<br><br><br><br>
+
+{% include 'stopka.html' %}

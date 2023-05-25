@@ -1,0 +1,33 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+{% block content %}
+
+{% if error == "no" %}
+<script>
+  alert('Zalogowano pomyslnie!');
+  window.location = "{% url 'dashboard' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Bledne logowanie. Sprobuj ponownie.');
+</script>
+{% endif %}
+
+
+<div class="container">
+  <h2 class="text-center">Logowanie administratora</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label>Login</label>
+    <input type="text" class="form-control" name="uname">
+    <label>Hasło</label>
+    <input type="password" class="form-control" name="pwd">
+    <input type="submit" value="login" class="form-control btn btn-primary">
+  </form>
+</div>
+
+{% endblock content %}
+
+{% include 'stopka.html' %}

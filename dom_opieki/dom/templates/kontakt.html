@@ -1,0 +1,50 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+<style>
+    .mydivstyle:hover {
+        box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+        transform: translateY(-20px);
+    }
+</style>
+
+
+
+{% block content %}
+
+<div class="container" style="margin-top: 50px;">
+    <h1 Class = "text-center"> Kontakt </h1>
+  <div class="row mt-5 text-center">
+    <div class="col-lg-3 col-sm-6 mydivstyle">
+        <h4><i class="fa-solid fa-phone"></i> Telefon</i></h4>
+        <p class="font-weight-bold mt-3">Dyrektor Eugenia Żaba</p>
+        <p class="text-danger"><a href="tel:+48666666666">(+48) 666 666 666</a></p>
+        <p class="font-weight-bold">Sekretariat</p>
+        <p class="text-danger"><a href="tel:+48000000000">(+48) 000 000 000</a></p>
+    </div>
+    <div class="col-lg-3 col-sm-6 mydivstyle">
+      <h4><i class="fa-solid fa-envelope"></i> E-mail</h4>
+        <p class="font-weight-bold mt-3">Dyrektor</p>
+      <p><a href="mailto: gienia.zabka@ostatniaprosta.pl">gienia.zabka@ostatniaprosta.pl</a></p>
+      <p class="font-weight-bold">Sekretariat</p>
+        <p><a href="mailto: sekretariat@ostatniaprosta.pl">sekretariat@ostatniaprosta.pl</a></p>
+    </div>
+    <div class="col-lg-3 col-sm-6 mydivstyle">
+      <h4><i class="fa-solid fa-map-location-dot"></i> Adres</h4>
+        <p class="font-weight-bold mt-3"> Dom opieki "Ostatnia prosta" <br> ul. Prosta 9 <br> 01-234 Nigdzie </p>
+        <p>(Ostani dom na ul. Prostej)</p>
+        <p><a href="https://goo.gl/maps/2d6pm1qySoTRaDct8">Zobacz na mapie</a></p>
+    </div>
+      <div class="col-lg-3 col-sm-6 mydivstyle">
+      <h4><i class="fa-solid fa-clock"></i> Godziny pracy sekretariatu</h4>
+          <p class="font-weight-bold mt-3">Poniedziałek - Piątek</p>
+          <p>8:00 - 16:00</p>
+          <p class="font-weight-bold">Sobota</p>
+          <p>9:00 - 14:00</p>
+          <p class="font-weight-bold">Niedziela</p>
+          <p>Nieczynne</p>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+{% include 'stopka.html' %}

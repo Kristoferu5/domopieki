@@ -1,0 +1,38 @@
+{% include 'bazowa.html' %}
+{% include 'nawigacja.html' %}
+
+{% block content %}
+
+{% if error == "no" %}
+<script>
+  alert('Zapisano pomyślnie!');
+  window.location = "{% url 'podglad_pracownika' %}";
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert('Błędne logowanie. Spróbuj ponownie.');
+</script>
+{% endif %}
+
+<div class="container">
+  <h2 class="text-center">Dodawanie pracownika</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <label>Imię</label>
+    <input type="text" class="form-control" name="imie">
+    <label>Nazwisko</label>
+    <input type="text" class="form-control" name="nazwisko">
+      <label>Dane kontaktowe</label>
+    <input type="text" class="form-control" name="dane_kontaktowe">
+      <label>Specjalizacja</label>
+    <input type="text" class="form-control" name="specjalizacja">
+
+    <input type="submit" value="submit" class="form-control btn btn-primary">
+  </form>
+</div>
+
+{% endblock content %}
+
+{% include 'stopka.html' %}
